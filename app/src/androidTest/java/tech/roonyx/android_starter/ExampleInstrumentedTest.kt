@@ -1,4 +1,4 @@
-package tech.roonyx.android_example
+package tech.roonyx.android_starter
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

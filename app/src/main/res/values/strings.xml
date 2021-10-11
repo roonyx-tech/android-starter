@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">android-example</string>
+    <string name="app_name">android-starter</string>
+
+    <string name="loading_error">Произошла ошибка при загрузке данных</string>
+    <string name="server_error">Проблема связи с сервером</string>
+    <string name="network_error">Произошла ошибка, проверьте интернет соединение.</string>
 </resources>

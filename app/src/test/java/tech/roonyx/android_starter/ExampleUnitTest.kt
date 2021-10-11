@@ -1,4 +1,4 @@
-package tech.roonyx.android_example
+package tech.roonyx.android_starter
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
