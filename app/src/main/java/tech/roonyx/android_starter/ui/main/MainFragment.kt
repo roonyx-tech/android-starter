@@ -20,8 +20,11 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.messageLiveData.observe(viewLifecycleOwner) {
+            binding.progressBar.isVisible = it is Result.Loading
+            binding.message.isVisible = it is Result.Success || it is Result.Error
+
             binding.message.text = when (it) {
-                is Result.Loading -> "Loading"
+                Result.Loading -> ""
                 is Result.Success -> it.data
                 is Result.Error -> it.exception.getMessageUI(requireContext())
             }

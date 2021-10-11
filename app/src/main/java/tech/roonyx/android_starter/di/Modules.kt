@@ -8,6 +8,7 @@ import tech.roonyx.android_starter.data.remote.Api
 import tech.roonyx.android_starter.data.remote.RetrofitFactory
 import tech.roonyx.android_starter.repository.Repository
 import tech.roonyx.android_starter.ui.main.MainViewModel
+import tech.roonyx.android_starter.ui.paging.PagingViewModel
 
 fun getAppModules(baseUrl: String) = listOf(
     networkModule(baseUrl),
@@ -23,6 +24,7 @@ private val appModule = module {
 
 private val viewModelModule = module {
     viewModel { MainViewModel(get()) }
+    viewModel { PagingViewModel(get()) }
 }
 
 private val interactorModule = module {
