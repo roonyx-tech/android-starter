@@ -5,7 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import tech.roonyx.android_starter.R
+import tech.roonyx.android_starter.common.Result
 import tech.roonyx.android_starter.databinding.MainFragmentBinding
+import tech.roonyx.android_starter.extension.getMessageUI
 import tech.roonyx.android_starter.extension.viewBinding
 
 class MainFragment : Fragment(R.layout.main_fragment) {
@@ -18,7 +20,11 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.messageLiveData.observe(viewLifecycleOwner) {
-            binding.message.text = it
+            binding.message.text = when (it) {
+                is Result.Loading -> "Loading"
+                is Result.Success -> it.data
+                is Result.Error -> it.exception.getMessageUI(requireContext())
+            }
         }
     }
 
